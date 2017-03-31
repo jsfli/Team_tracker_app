@@ -2,6 +2,14 @@
 <hr>
 <h3>List of signed up teams: </h3>
 
+<ul>
+  <% @teams.each() do |team| %>
+  <div class="team_tile">
+    <a href="/teams/<%=team.id()%>"><%=team.name()%></a>
+  </div>
+  <%end%>
+</ul>
+
 <div>
   <a href="/teams/new" class="btn btn-primary">Add a New Team</a>
 </div>
