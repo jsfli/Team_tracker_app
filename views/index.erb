@@ -4,7 +4,7 @@
 
 <ul>
   <% @teams.each() do |team| %>
-  <div class="team_tile">
+  <div>
     <a href="/teams/<%=team.id()%>"><%=team.name()%></a>
   </div>
   <%end%>
