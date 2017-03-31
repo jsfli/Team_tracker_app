@@ -6,10 +6,11 @@ class Member
     @name   = attributes.fetch(:name)
     @mobile = attributes.fetch(:mobile)
     @email  = attributes.fetch(:email)
+    @photo = attributes.fetch(:photo)
     @id ==@@members.length().+(1)
   end
 
-  attr_reader(:name, :mobile, :email, :id)
+  attr_reader(:name, :mobile, :email, :photo,:id)
 
   define_singleton_method(:all) do
     @@members

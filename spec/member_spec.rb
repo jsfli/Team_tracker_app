@@ -4,10 +4,12 @@ require('member')
 describe(Member) do
 
   before() do
+    Member.clear()
     @test_member = Member.new({
       :name=>"Jeffrey Li",
       :mobile=>23456789,
-      :email=>"jeffrey.li@gmail.com"})
+      :email=>"jeffrey.li@gmail.com",
+      :photo=>"url"})
   end
 
   describe("#initialize") do
@@ -15,6 +17,8 @@ describe(Member) do
       expect(@test_member.name()).to(eq("Jeffrey Li"))
       expect(@test_member.mobile()).to(eq(23456789))
       expect(@test_member.email()).to(eq("jeffrey.li@gmail.com"))
+      expect(@test_member.photo()).to(eq("url"))
+
     end
   end
 
