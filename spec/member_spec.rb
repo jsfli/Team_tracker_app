@@ -24,4 +24,19 @@ describe(Member) do
     end
   end
 
+  describe("#save") do
+    it("adds a member to the array of members") do
+      @test_member.save()
+      expect(Member.all()).to(eq([@test_member]))
+    end
+  end
+
+  describe('.clear') do
+    it("empties out the array of Members") do
+      @test_member.save()
+      Member.clear()
+      expect(Member.all()).to(eq([]))
+    end
+  end
+
 end #end of Member class describe
