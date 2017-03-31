@@ -22,3 +22,26 @@ post('/teams') do
   team.save()
   erb(:index)
 end
+
+get('/teams/:id') do
+  @team = Team.find(params.fetch('id').to_i())
+  erb(:team)
+end
+
+get('/teams/:id/members/new') do
+  @team = Team.find(params.fetch('id').to_i())
+  erb(:teams_members_form)
+end
+
+post('/member') do
+  name = params.fetch("name")
+  mobile = params.fetch("mobile")
+  email = params.fetch("email")
+  photo = params.fetch("photo")
+  hash = {:name=>name, :mobile=>mobile, :email=>email, :photo=>photo}
+  @member = Member.new(hash)
+  @member.save()
+  @team = Team.find(params.fetch("team_id").to_i())
+  @team.add_member(@member)
+  erb(:team)
+end

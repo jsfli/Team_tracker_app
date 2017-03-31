@@ -1,15 +1,17 @@
-<h1>Startup Weekend Team Tracker App</h1>
-<hr>
-<h3>List of signed up teams: </h3>
-
-<ul>
-  <% @teams.each() do |team| %>
-  <div>
-    <a href="/teams/<%=team.id()%>"><%=team.name()%></a>
-  </div>
-  <%end%>
-</ul>
-
 <div>
-  <a href="/teams/new" class="btn btn-primary">Add a New Team</a>
+<h1>Startup Weekend Team Tracker App</h1>
+</div>
+<hr>
+<div>
+  <h3>List of signed up teams: </h3>
+    <ul>
+      <% @teams.each() do |team| %>
+        <div class="teams-tile">
+          <p><a href="/teams/<%=team.id()%>"><%=team.name()%></a></p>
+        </div>
+      <%end%>
+    </ul>
+</div>
+<div>
+  <p><a href="/teams/new" class="btn btn-primary">Add a New Team</a></p>
 </div>
