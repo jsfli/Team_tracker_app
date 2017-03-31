@@ -1,16 +1,21 @@
 <h3><%= @team.name() %> Members Details</h3>
 <h4>List of team members: </h4>
-
-<ul>
-  <% @team.members().each do |member| %>
-    <div class="member-tile">
-      <p><b>Photo url: </b><%=member.photo()%></p>
-      <p><b>Name: </b><%=member.name()%></p>
-      <p><b>Mobile: </b><%=member.mobile()%></p>
-      <p><b>Email: </b><%=member.email()%></p>
-    </div>
-  <% end %>
-</ul>
+<div class="row">
+  <ul>
+    <% @team.members().each do |member| %>
+      <div class="col-sm-3 col-md-3">
+        <div class="thumbnail">
+          <img src="<%=member.photo()%>" alt="member_photo">
+          <div class="caption">
+            <p><b>Name: </b><%=member.name()%></p>
+            <p><b>Mobile: </b><%=member.mobile()%></p>
+            <p><b>Email: </b><%=member.email()%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
 
 <a href="/teams/<%= @team.id() %>/members/new" class="btn btn-primary">Add a new team member</a>
 <a href="/" class="btn btn-success">Return to List of Teams</a>
